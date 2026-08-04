@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+
+downloads/
+extracted/
+extracted_files/
+
+anesthesia/downloads/
+anesthesia/extracted/
+
+dme/downloads/
+dme/extracted/
+
+*.zip
+*.crdownload

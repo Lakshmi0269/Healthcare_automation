@@ -7,7 +7,9 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-DOWNLOAD_FOLDER = os.path.abspath("downloads")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+DOWNLOAD_FOLDER = os.path.join(BASE_DIR, "downloads")
 
 
 def download_anesthesia():
@@ -49,7 +51,8 @@ def download_anesthesia():
 
     print("Downloading Anesthesia ZIP file...")
 
-    time.sleep(5)
+    # Wait for the download to complete
+    time.sleep(10)
 
     driver.quit()
 

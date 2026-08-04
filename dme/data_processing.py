@@ -1,13 +1,14 @@
 import os
 import pandas as pd
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+EXTRACT_FOLDER = os.path.join(BASE_DIR, "extracted")
+
 
 def read_data():
 
-    extract_folder = "extracted"
-
     txt_files = [
-        f for f in os.listdir(extract_folder)
+        f for f in os.listdir(EXTRACT_FOLDER)
         if f.lower().endswith(".txt")
     ]
 
@@ -15,7 +16,7 @@ def read_data():
         print("No TXT file found.")
         return pd.DataFrame()
 
-    file_path = os.path.join(extract_folder, txt_files[0])
+    file_path = os.path.join(EXTRACT_FOLDER, txt_files[0])
 
     print(f"Reading: {txt_files[0]}")
 

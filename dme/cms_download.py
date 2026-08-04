@@ -7,7 +7,10 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-DOWNLOAD_FOLDER = os.path.abspath("downloads")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+DOWNLOAD_FOLDER = os.path.join(BASE_DIR, "downloads")
+
 
 
 def download_dme():
@@ -38,7 +41,7 @@ def download_dme():
 
     driver.maximize_window()
 
-    time.sleep(5)
+    time.sleep(10)
 
     print("Clicking DME26-A...")
 

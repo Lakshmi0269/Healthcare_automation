@@ -1,13 +1,14 @@
 import os
 import pandas as pd
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+EXTRACT_FOLDER = os.path.join(BASE_DIR, "extracted")
+
 
 def read_data():
 
-    extract_folder = "extracted"
-
     csv_files = [
-        f for f in os.listdir(extract_folder)
+        f for f in os.listdir(EXTRACT_FOLDER)
         if f.lower().endswith(".csv")
         and not f.startswith("._")
     ]
@@ -16,7 +17,7 @@ def read_data():
         print("No CSV file found.")
         return pd.DataFrame()
 
-    file_path = os.path.join(extract_folder, csv_files[0])
+    file_path = os.path.join(EXTRACT_FOLDER, csv_files[0])
 
     print(f"Reading: {csv_files[0]}")
 

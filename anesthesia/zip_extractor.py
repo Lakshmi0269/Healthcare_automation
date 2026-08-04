@@ -9,11 +9,17 @@ EXTRACT_FOLDER = os.path.join(BASE_DIR, "extracted")
 
 def extract_all_zip_files():
 
+    os.makedirs(DOWNLOAD_FOLDER, exist_ok=True)
     os.makedirs(EXTRACT_FOLDER, exist_ok=True)
 
-    # Extract downloaded ZIP files
+    print(f"DOWNLOAD_FOLDER: {DOWNLOAD_FOLDER}")
+    print(f"EXTRACT_FOLDER: {EXTRACT_FOLDER}")
+
+    files = os.listdir(DOWNLOAD_FOLDER)
+    print(f"Files in downloads: {files}")
+
     zip_files = [
-        file for file in os.listdir(DOWNLOAD_FOLDER)
+        file for file in files
         if file.lower().endswith(".zip")
     ]
 
@@ -32,7 +38,7 @@ def extract_all_zip_files():
 
         print(f"{zip_name} extracted successfully.")
 
-    # Look for nested ZIP files (__MACOSX.zip or any other ZIP)
+    # Extract nested ZIP files if any
     for root, dirs, files in os.walk(EXTRACT_FOLDER):
 
         for file in files:
